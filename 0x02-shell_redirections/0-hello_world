@@ -1,0 +1,3 @@
+#!bin/push
+echo 'Hello,world'
+
