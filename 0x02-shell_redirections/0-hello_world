@@ -1,3 +1,2 @@
-#!bin/push
-echo 'Hello,world'
-
+#!bin/bash
+echo 'Helo, world'
