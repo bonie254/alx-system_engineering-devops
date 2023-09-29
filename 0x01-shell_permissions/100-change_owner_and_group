@@ -1,3 +1,3 @@
 #!/bin/bash
-chown vinicent:staf_hello
+chown vincent:staff_hello
 
