@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Loop through each file and directory in the current directory
+for file in *; do
+    # Check if the file is not a hidden file
+    if [[ ! $file == .* ]]; then
+        # Get the part of the name after the first dash
+
+        name=$(echo "$file" | cut -d'-' -f2-)
+        # Display the name in a list format
+        echo "$name"
+    fi
+done

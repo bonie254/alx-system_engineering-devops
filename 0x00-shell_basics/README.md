@@ -1,1 +1,1 @@
-this is readme of directory
+shell message

@@ -1,0 +1,2 @@
+#1/bin/bash
+git add . && git commit -m 'loops and and conditions' && git push
