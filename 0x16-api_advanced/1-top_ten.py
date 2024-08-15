@@ -12,10 +12,23 @@ def top_ten(subreddit):
     params = {
         "limit": 10
     }
-    response = requests.get(url, headers=headers, params=params,
-                            allow_redirects=False)
-    if response.status_code == 404:
+    response = requests.get(url, headers=headers,
+                            params=params, allow_redirects=False)
+
+    # Check for a valid response
+    if response.status_code != 200:
         print("None")
         return
-    results = response.json().get("data")
-    [print(c.get("data").get("title")) for c in results.get("children")]
+
+    try:
+        results = response.json().get("data")
+        if not results or "children" not in results:
+            print("None")
+            return
+
+        # Print the titles of the hot posts
+        for post in results.get("children", []):
+            print(post.get("data", {}).get("title", "None"))
+
+    except ValueError:
+        print("None")

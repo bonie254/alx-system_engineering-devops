@@ -1,48 +1,63 @@
-# API advanced
+# Reddit API Scripts
 
-I continued to practice querying API's in this advanced project, this time
-working with the Reddit API.
+This repository contains Python scripts for interacting with the Reddit API. The scripts demonstrate how to perform tasks such as retrieving subscriber counts, listing hot posts, and analyzing post titles for specific keywords.
 
-## Tests :heavy_check_mark:
+## Scripts
 
-* [tests](./tests): Folder of test files for all tasks. Provided by Holberton
-School.
+### 1. `0-subs.py`
 
-## Function Prototypes :floppy_disk:
+**Description:**  
+Queries the Reddit API to return the number of subscribers for a given subreddit.
 
-Prototypes for functions written in this project:
+**Function:**
 
-| File           | Prototype                               |
-| -------------- | --------------------------------------- |
-| `0-subs.py`    | `def number_of_subscribers(subreddit)`  |
-| `1-top_ten.py` | `def top_ten(subreddit)`                |
-| `2-recurse.py` | `def recurse(subreddit, hot_list=[])`   |
-| `100-count.py` | `def count_words(subreddit, word_list)` |
+```python
+def number_of_subscribers(subreddit):
+    """Return the total number of subscribers on a given subreddit."""
+```
 
-## Tasks :page_with_curl:
+### 2. 1-top_ten.py
 
-* **0. How many subs?**
-  * [0-subs.py](./0-subs.py): Python function that returns the total number of
-  subscribers for a given subreddit.
-  * Returns `0` if an invalid subreddit is given.
+**Description:**
+Queries the Reddit API and prints the titles of the first 10 hot posts listed for a given subreddit.
 
-* **1. Top Ten**
-  * [1-top_ten.py](./1-top_ten.py): Python function that prints the top ten
-  hottest posts for a given subreddit.
-  * Prints `None` if an invalid subreddit is given.
+**Function:**
 
-* **2. Recurse it!**
-  * [2-recurse.py](./2-recurse.py): Python function that recursively returns a
-  list of titles for all hot articles on a given subreddit.
-  * Returns `None` if no results are found on the given subreddit.
+```python
+    def top_ten(subreddit):
+        """Print the titles of the 10 hottest posts on a given subreddit."""
+```
 
-* **3. Count it!**
-  * [100-count.py](./100-count.py): Python function that recursively prints a
-  sorted count of given keywords parsed from titles of all hot articles on a given
-  subreddit.
-  * Keywords are case-insensitive and delimited by spaces.
-  * Results are printed in descending order by count.
-  * Words with identical counts are sorted alphabetically.
-  * Words with no matches are skipped.
-  * Results are based on the number of times a keyword appears - ie.,
-  `java java java` counts as three separate instances of `java`.
+### 3. 2-recurse.py
+
+**Description:**
+Queries the Reddit API recursively and returns a list of titles of all hot articles for a given subreddit.
+
+**Function:**
+
+```python
+    def recurse(subreddit, hot_list=[], after="", count=0):
+        """Returns a list of titles of all hot posts on a given subreddit."""
+```
+
+**Usage:**
+To test the function, add a test call at the end of the script:
+
+```python
+    if __name__ == "__main__":
+    subreddit = "programming"  # Replace with the subreddit you want to test
+    print(recurse(subreddit))
+
+```
+
+### 4. 100-count.py
+
+**Description:**
+Queries the Reddit API, parses the title of all hot articles, and prints a sorted count of given keywords. The count is case-insensitive and considers exact matches only.
+
+**Function:**
+
+```python
+    def count_words(subreddit, word_list):
+        """Prints counts of given words found in hot posts of a given subreddit."""
+```
